@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="miaradi-madcameleon.css">
   <link rel="stylesheet" href="miaradi-about.css">
   <link rel="stylesheet" href="miaradi-brand-system.css">
+  <link rel="stylesheet" href="miaradi-discovery-cards.css">
 
   <script src="script.js" defer></script>
 </head>
@@ -132,48 +133,19 @@
       </div>
     </section>
 
-    <section class="madagascar-discovery" aria-labelledby="madagascar-discovery-title">
-      <div class="container madagascar-discovery-inner">
-        <div class="madagascar-collage" aria-label="Collage de paysages de Madagascar">
-          <a class="collage-image collage-baobabs" href="#circuits" data-circuit="L'Ouest sauvage" aria-label="Découvrir les baobabs de Morondava">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Walking_the_Avenue_of_the_Baobabs.jpg?width=1100" alt="Allée des baobabs de Morondava" loading="lazy">
-            <span>01 · OUEST</span>
-          </a>
-          <a class="collage-image collage-lagoon" href="#circuits" data-circuit="L'appel du lagon" aria-label="Découvrir les plages de Nosy Be">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Beach_at_Nosy_Be.jpg?width=1100" alt="Lagon et plage de Nosy Be" loading="lazy">
-            <span>02 · NORD</span>
-          </a>
-          <a class="collage-image collage-isalo" href="#circuits" data-circuit="Les paysages de l'Isalo" aria-label="Découvrir les paysages de l'Isalo">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Isalo-madagascar.jpg?width=1100" alt="Paysage du massif de l'Isalo" loading="lazy">
-            <span>03 · SUD</span>
-          </a>
-          <a class="collage-image collage-tsingy" href="#circuits" data-circuit="Les Tsingy de Bemaraha" aria-label="Découvrir les Tsingy de Bemaraha">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tsingy_de_Bemaraha.jpg?width=1100" alt="Formations rocheuses des Tsingy de Bemaraha" loading="lazy">
-            <span>04 · OUEST</span>
-          </a>
-          <a class="collage-image collage-lemur" href="#circuits" data-circuit="La forêt d'Andasibe" aria-label="Découvrir la faune d'Andasibe">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Indri_Andasibe.JPG?width=1100" alt="Lémurien indri dans la forêt d'Andasibe" loading="lazy">
-            <span>05 · EST</span>
-          </a>
-          <a class="collage-image collage-highlands" href="#circuits" data-circuit="La Route nationale 7" aria-label="Découvrir les Hautes Terres">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Isalo_landscape.jpg?width=1100" alt="Grands espaces et reliefs de Madagascar" loading="lazy">
-            <span>06 · HAUTES TERRES</span>
-          </a>
-          <div class="collage-center">
-            <span class="collage-overline">EXPLORE</span>
-            <h2 id="madagascar-discovery-title">MADAGASCAR</h2>
-            <span class="collage-rule"></span>
-            <p>Une île, mille merveilles</p>
-            <a href="#circuits" aria-label="Explorer les circuits de Madagascar">Explorer <span aria-hidden="true">↗</span></a>
-          </div>
-          <span class="collage-leaf collage-leaf-one" aria-hidden="true">✳</span>
-          <span class="collage-leaf collage-leaf-two" aria-hidden="true">✳</span>
+    <section class="discovery-cards section-pad" aria-labelledby="discovery-title">
+      <div class="container discovery-cards-inner">
+        <div class="discovery-heading">
+          <h2 id="discovery-title" data-i18n="discoveryTitle">Découvrez Madagascar autrement</h2>
+          <a href="#circuits" class="discovery-see-all" data-i18n="discoverySeeAll">Voir tout</a>
         </div>
-        <div class="madagascar-discovery-copy">
-          <p class="eyebrow"><span class="eyebrow-line"></span>UNE DESTINATION, TANT DE VISAGES</p>
-          <h2>Explorez Madagascar.<br><em>À votre façon.</em></h2>
-          <p>Des baobabs majestueux aux lagons lumineux, des forêts peuplées de lémuriens aux reliefs du Sud : composez un voyage qui vous ressemble.</p>
-          <a class="underlined-link" href="#circuits">Découvrir nos circuits <span aria-hidden="true">↗</span></a>
+        <div class="discovery-grid">
+          <a class="discovery-card discovery-card-feature" href="#circuits" data-circuit="Les Tsingy de Bemaraha"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tsingy_de_Bemaraha.jpg?width=1200" alt="Les Tsingy de Bemaraha et la nature sauvage de l'ouest malgache" loading="lazy"><span class="discovery-card-content"><strong data-i18n="discoveryFeatureTitle">Canoë sur la Manambolo et Tsingy de Bemaraha</strong><span data-i18n="discoveryFeatureCopy">Explorez une région spectaculaire entre rivière, falaises calcaires et villages de l’ouest de Madagascar.</span><span class="discovery-card-cta" data-i18n="discoveryExplore">Découvrir ↗</span></span></a>
+          <a class="discovery-card discovery-card-tile" href="#contact"><span class="discovery-card-content"><strong data-i18n="discoveryTailorTitle">Voyagez autrement, à votre façon</strong><span data-i18n="discoveryTailorCopy">Co-créons un itinéraire adapté à vos envies, votre rythme et votre budget.</span><span class="discovery-card-cta" data-i18n="discoveryExplore">Découvrir ↗</span></span></a>
+          <a class="discovery-card discovery-card-river" href="#circuits" data-circuit="La Route nationale 7"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tsiribihina_River_Madagascar.jpg?width=900" alt="Navigation sur une rivière de Madagascar" loading="lazy"><span class="discovery-card-content"><strong data-i18n="discoveryRiverTitle">Navigation sur les rivières de Madagascar</strong><span data-i18n="discoveryRiverCopy">Prenez le temps de découvrir les paysages et la vie locale au fil de l’eau.</span><span class="discovery-card-cta" data-i18n="discoveryExplore">Découvrir ↗</span></span></a>
+          <a class="discovery-card discovery-card-team" href="#about"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Indri_Andasibe.JPG?width=900" alt="Lémurien indri dans la forêt malgache" loading="lazy"><span class="discovery-card-content"><strong data-i18n="discoveryTeamTitle">Une île, une équipe, mille rencontres</strong><span data-i18n="discoveryTeamCopy">Découvrez Madagascar avec une approche attentive aux lieux, aux habitants et à la nature.</span><span class="discovery-card-cta" data-i18n="discoveryAbout">Notre approche ↗</span></span></a>
+          <a class="discovery-card discovery-card-promise" href="#contact"><span class="discovery-promise-mark" aria-hidden="true">✳</span><span class="discovery-card-content"><strong data-i18n="discoveryPromiseTitle">Votre voyage, votre histoire</strong><span data-i18n="discoveryPromiseCopy">Chaque projet est unique. Parlons de vos envies et préparons un devis personnalisé.</span><span class="discovery-card-cta" data-i18n="discoveryQuote">Demander un devis ↗</span></span></a>
+          <a class="discovery-card discovery-card-lemur" href="#circuits" data-circuit="La forêt d'Andasibe"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Indri_Andasibe.JPG?width=900" alt="Indri dans son habitat naturel à Andasibe" loading="lazy"><span class="discovery-image-label" data-i18n="discoveryNatureLabel">Nature & rencontres</span><span class="discovery-play" aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
