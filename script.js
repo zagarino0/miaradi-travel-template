@@ -1,6 +1,7 @@
 const translations = {
   fr: {
     navAbout: "À propos", navCircuits: "Circuits", navContact: "Contact", navQuote: "Demander un devis",
+    megaThemes: "Les thèmes", megaThemesCopy: "Choisissez une ambiance et imaginez votre voyage à Madagascar.", megaTailor: "Voyage sur mesure", megaFeatured: "Quelques idées de circuits", megaWestTitle: "L’Ouest sauvage", megaWestCopy: "Baobabs et grands espaces", megaNorthTitle: "L’appel du lagon", megaNorthCopy: "Nord, plages et îles", megaEastTitle: "Au cœur des forêts", megaEastCopy: "Nature et biodiversité", megaViewAll: "Voir tous les circuits ↗", megaQuoteEyebrow: "VOTRE PROJET", megaQuoteTitle: "Un voyage qui vous ressemble", megaQuoteCopy: "Créons ensemble votre itinéraire, selon vos envies.", megaQuoteButton: "Demander un devis ↗",
     finderEyebrow: "VOTRE PROCHAINE AVENTURE", finderTitle: "Trouvez votre <em>voyage.</em>", finderRegion: "Région", finderDuration: "Durée du séjour", finderTheme: "Type de voyage", finderSubmit: "Trouver un circuit",
     heroEyebrow: "VOYAGES AUTHENTIQUES · MADAGASCAR",
     heroTitle: "Le voyage commence<br><em>au bout du monde.</em>",
@@ -41,6 +42,7 @@ const translations = {
   },
   en: {
     navAbout: "About", navCircuits: "Journeys", navContact: "Contact", navQuote: "Request a quote",
+    megaThemes: "Travel themes", megaThemesCopy: "Choose a travel style and imagine your own journey through Madagascar.", megaTailor: "Tailor-made journey", megaFeatured: "Journey ideas", megaWestTitle: "The wild west", megaWestCopy: "Baobabs and wide-open spaces", megaNorthTitle: "Call of the lagoon", megaNorthCopy: "Northern beaches and islands", megaEastTitle: "Into the forests", megaEastCopy: "Nature and biodiversity", megaViewAll: "View all journeys ↗", megaQuoteEyebrow: "YOUR TRIP", megaQuoteTitle: "A journey made for you", megaQuoteCopy: "Let’s shape an itinerary around what inspires you.", megaQuoteButton: "Request a quote ↗",
     finderEyebrow: "YOUR NEXT ADVENTURE", finderTitle: "Find your <em>journey.</em>", finderRegion: "Region", finderDuration: "Trip length", finderTheme: "Travel style", finderSubmit: "Find a journey",
     heroEyebrow: "AUTHENTIC JOURNEYS · MADAGASCAR",
     heroTitle: "Your journey begins<br><em>at the edge of the world.</em>",
@@ -130,6 +132,26 @@ function initHeroSlideshow() {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").textContent = String(new Date().getFullYear());
   initHeroSlideshow();
+
+  const circuitsDropdown = document.getElementById("circuits-dropdown");
+  const circuitsToggle = circuitsDropdown?.querySelector(".nav-dropdown-toggle");
+  circuitsToggle?.addEventListener("click", (event) => {
+    event.preventDefault();
+    const isOpen = circuitsDropdown.classList.toggle("is-open");
+    circuitsToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+  document.addEventListener("click", (event) => {
+    if (circuitsDropdown && !circuitsDropdown.contains(event.target)) {
+      circuitsDropdown.classList.remove("is-open");
+      circuitsToggle?.setAttribute("aria-expanded", "false");
+    }
+  });
+  circuitsDropdown?.querySelectorAll(".mega-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      circuitsDropdown.classList.remove("is-open");
+      circuitsToggle?.setAttribute("aria-expanded", "false");
+    });
+  });
 
   const menuToggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".primary-nav");
