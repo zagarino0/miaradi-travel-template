@@ -103,3 +103,50 @@
   outline:2px solid #922D20 !important;
   outline-offset:2px !important;
 }
+
+
+/* Definitive reset for the Circuits arrow: no colored square or button chrome. */
+.site-header .primary-nav .nav-dropdown .nav-dropdown-topline button.nav-dropdown-toggle,
+.site-header .primary-nav .nav-dropdown .nav-dropdown-topline button.nav-dropdown-toggle:hover,
+.site-header .primary-nav .nav-dropdown .nav-dropdown-topline button.nav-dropdown-toggle:active,
+.site-header .primary-nav .nav-dropdown .nav-dropdown-topline button.nav-dropdown-toggle[aria-expanded="true"] {
+  all:unset !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex:0 0 22px !important;
+  width:22px !important;
+  height:44px !important;
+  margin:0 0 0 1px !important;
+  padding:0 !important;
+  box-sizing:border-box !important;
+  color:#922D20 !important;
+  background:transparent none !important;
+  background-color:transparent !important;
+  background-image:none !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  filter:none !important;
+  cursor:pointer !important;
+}
+.site-header .primary-nav .nav-dropdown .nav-dropdown-topline button.nav-dropdown-toggle .nav-chevron {
+  display:block !important;
+  width:8px !important;
+  height:8px !important;
+  margin-top:-4px !important;
+  border:0 !important;
+  border-right:1.8px solid currentColor !important;
+  border-bottom:1.8px solid currentColor !important;
+  border-radius:0 !important;
+  background:transparent none !important;
+  box-shadow:none !important;
+  transform:rotate(45deg) !important;
+}
+.site-header .primary-nav .nav-dropdown .nav-dropdown-topline button.nav-dropdown-toggle:hover {
+  color:#6f2119 !important;
+}
+.site-header .primary-nav .nav-dropdown.is-open .nav-dropdown-topline button.nav-dropdown-toggle .nav-chevron {
+  margin-top:4px !important;
+  transform:rotate(225deg) !important;
+}
