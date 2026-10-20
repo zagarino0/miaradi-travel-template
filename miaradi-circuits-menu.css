@@ -7,7 +7,7 @@
 .nav-dropdown-toggle {
   display:inline-flex; align-items:center; justify-content:center; flex:none;
   width:22px; height:44px; margin-left:1px; padding:0;
-  border:0; border-radius:0; background:transparent; color:#922D20;
+  border:0; border-radius:0; background:none; color:#922D20;
   cursor:pointer; box-shadow:none;
   transition:color .2s ease;
 }
@@ -17,10 +17,10 @@
   transform:rotate(45deg); transition:transform .22s ease;
 }
 .nav-dropdown-toggle:hover,.nav-dropdown-toggle:focus-visible {
-  background:transparent; color:#6f2119; box-shadow:none; outline:none;
+  background:none; color:#6f2119; box-shadow:none; outline:none;
 }
 .nav-dropdown-toggle:focus-visible { outline:2px solid #922D20; outline-offset:1px; }
-.nav-dropdown.is-open .nav-dropdown-toggle { background:transparent; color:#922D20; }
+.nav-dropdown.is-open .nav-dropdown-toggle { background:none; color:#922D20; }
 .nav-dropdown.is-open .nav-chevron { margin-top:4px; transform:rotate(225deg); }
 .mega-menu {
   position:absolute; top:100%; left:50%; transform:translate(-50%, 10px);
