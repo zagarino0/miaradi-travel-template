@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="miaradi-brand-system.css">
   <link rel="stylesheet" href="miaradi-discovery-cards.css">
   <link rel="stylesheet" href="miaradi-circuits-menu.css">
+  <link rel="stylesheet" href="miaradi-footer.css">
 
   <script src="script.js" defer></script>
 </head>
@@ -281,14 +282,60 @@
   </dialog>
 
   <footer class="site-footer">
-    <div class="container footer-main">
-      <a class="brand brand-footer" href="#top">
-        <img class="brand-logo brand-logo-footer" src="https://raw.githubusercontent.com/zagarino0/miaradi-travel/feat/miaradi-madcameleon-inspired/assets/miaradi-logo.png" alt="Miaradi — Tour Operator Madagascar">
-      </a>
-      <p data-i18n="footerStatement">Madagascar, plus proche. Le monde, autrement.</p>
-      <nav aria-label="Navigation de pied de page"><a href="#about" data-i18n="navAbout">À propos</a><a href="#circuits" data-i18n="navCircuits">Circuits</a><a href="#contact" data-i18n="navContact">Contact</a></nav>
+    <div class="footer-intro">
+      <div class="container footer-intro-inner">
+        <a class="brand brand-footer" href="#top" aria-label="MIARADI-TRAVEL — accueil">
+          <img class="brand-logo brand-logo-footer" src="https://raw.githubusercontent.com/zagarino0/miaradi-travel/feat/miaradi-madcameleon-inspired/assets/miaradi-logo.png" alt="Miaradi — Tour Operator Madagascar">
+        </a>
+        <div class="footer-story">
+          <p class="footer-eyebrow" data-i18n="footerEyebrow">VOYAGES AUTHENTIQUES · MADAGASCAR</p>
+          <p data-i18n="footerStatement">Madagascar, plus proche. Le monde, autrement.</p>
+          <p class="footer-story-copy" data-i18n="footerDescription">Nous imaginons des voyages sur mesure pour vous faire découvrir Madagascar à votre rythme, entre paysages spectaculaires, rencontres locales et expériences authentiques.</p>
+        </div>
+      </div>
     </div>
-    <div class="container footer-bottom"><span>© <span id="year"></span> MIARADI-TRAVEL</span><span data-i18n="footerRights">Tous droits réservés</span><a href="#top" data-i18n="backTop">Retour en haut ↑</a></div>
+    <div class="container footer-directory">
+      <section class="footer-column footer-themes">
+        <h2 data-i18n="footerThemesTitle">Nos circuits par thème</h2>
+        <div class="footer-theme-links">
+          <a href="#circuits" data-i18n="themeNature">Nature & biodiversité</a>
+          <a href="#circuits" data-i18n="themeCoast">Côte & îles</a>
+          <a href="#circuits" data-i18n="themeCulture">Culture & traditions</a>
+          <a href="#circuits" data-i18n="themeAdventure">Aventure & randonnée</a>
+          <a href="#circuits" data-i18n="themeDiscovery">Découverte</a>
+          <a href="#contact" data-i18n="themeCustom">Voyage sur mesure</a>
+        </div>
+      </section>
+      <section class="footer-column">
+        <h2 data-i18n="footerLinksTitle">Liens directs</h2>
+        <a href="#about" data-i18n="navAbout">À propos</a>
+        <a href="#circuits" data-i18n="navCircuits">Nos circuits</a>
+        <a href="#contact" data-i18n="navContact">Nous contacter</a>
+        <a href="#contact" data-i18n="footerQuoteLink">Demander un devis</a>
+      </section>
+      <section class="footer-column footer-help">
+        <h2 data-i18n="footerHelpTitle">Besoin d'aide ?</h2>
+        <a href="#contact" data-i18n="footerPlanLink">Préparer mon voyage</a>
+        <a href="#contact" data-i18n="footerCustomLink">Créer un circuit personnalisé</a>
+        <p data-i18n="footerHelpNote">Une question ou une idée de voyage ? Parlons ensemble de votre projet.</p>
+      </section>
+      <section class="footer-column footer-contact">
+        <h2 data-i18n="footerContactTitle">Info et réservation</h2>
+        <a class="footer-contact-cta" href="#contact" data-i18n="footerContactCta">Parlons de votre voyage ↗</a>
+        <p data-i18n="footerContactNote">Voyages uniquement sur devis · Madagascar</p>
+        <p class="footer-contact-hours" data-i18n="footerContactHours">Réponse personnalisée selon votre projet et vos dates.</p>
+        <h3 data-i18n="footerSocialTitle">Suivez-nous</h3>
+        <div class="footer-social-links">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
+        </div>
+      </section>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> MIARADI-TRAVEL</span>
+      <span data-i18n="footerRights">Tous droits réservés</span>
+      <a href="#top" data-i18n="backTop">Retour en haut ↑</a>
+    </div>
   </footer>
 </body>
 </html>
