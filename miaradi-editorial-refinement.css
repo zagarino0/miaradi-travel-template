@@ -1,0 +1,81 @@
+/* MIARADI editorial refinement — preserves existing layout and brand palette. */
+:root {
+  --brand-red:#922D20;
+  --brand-ivory:#FBF8F5;
+  --brand-serif:"Cormorant Garamond","Playfair Display",Georgia,serif;
+  --brand-sans:"DM Sans",Arial,sans-serif;
+}
+html { scroll-behavior:smooth; scroll-padding-top:100px; }
+body { font-family:var(--brand-sans) !important; letter-spacing:.005em; }
+h1,h2,h3,h4,.hero h1,.section-title,.about-title,.circuit-card h3,.experience-card h3 {
+  font-family:var(--brand-serif) !important;
+  font-weight:600 !important;
+  letter-spacing:-.035em !important;
+}
+h2 { line-height:1.08 !important; }
+p { text-wrap:pretty; }
+.eyebrow,.promo-bar,.primary-nav,.button,.nav-cta,.filter-label,.circuit-meta,.footer-eyebrow {
+  font-family:var(--brand-sans) !important;
+  letter-spacing:.105em;
+}
+.site-header { box-shadow:0 5px 22px rgba(55,35,28,.045) !important; }
+.header-inner { min-height:82px; }
+.primary-nav { gap:clamp(18px,2.6vw,36px) !important; }
+.primary-nav > a:not(.nav-cta) {
+  position:relative; font-size:11px !important; font-weight:700 !important;
+  letter-spacing:.1em !important; text-transform:uppercase;
+}
+.primary-nav > a:not(.nav-cta)::after {
+  content:""; position:absolute; left:0; right:100%; bottom:-7px; height:1px;
+  background:#922D20; transition:right .24s ease;
+}
+.primary-nav > a:not(.nav-cta):hover::after,
+.primary-nav > a:not(.nav-cta):focus-visible::after { right:0; }
+.nav-cta,.button,.button-primary,.button-dark,.form-submit,.about-cta {
+  font-size:11px !important; font-weight:700 !important; letter-spacing:.06em !important;
+  text-transform:uppercase; transition:transform .22s ease,background .22s ease,color .22s ease !important;
+}
+.nav-cta:hover,.button:hover,.button-primary:hover,.button-dark:hover,.form-submit:hover,.about-cta:hover { transform:translateY(-2px); }
+.hero { background-color:#2C2926 !important; }
+.hero-shade {
+  background:linear-gradient(90deg,rgba(32,22,19,.76) 0%,rgba(49,31,25,.48) 46%,rgba(49,31,25,.08) 100%),linear-gradient(0deg,rgba(32,22,19,.42),transparent 40%) !important;
+}
+.hero h1 {
+  max-width:900px !important; font-size:clamp(58px,7.2vw,104px) !important;
+  line-height:.94 !important; letter-spacing:-.055em !important;
+  text-shadow:0 2px 25px rgba(0,0,0,.08);
+}
+.hero h1 em,.hero h1 em * { color:#FBF8F5 !important; font-style:italic; }
+.hero .eyebrow { font-size:10px !important; letter-spacing:.18em !important; }
+.hero-copy { max-width:490px !important; font-size:15px !important; line-height:1.9 !important; }
+.section-pad { padding-block:clamp(76px,9vw,124px) !important; }
+.section-title,.about-section h2,.trip-finder h2 { letter-spacing:-.045em !important; }
+.circuit-card,.tour-card,.experience-card,.about-image-wrap,.about-visual {
+  border-radius:3px !important; overflow:hidden;
+}
+.circuit-card,.tour-card,.experience-card {
+  border:1px solid rgba(44,41,38,.11) !important;
+  box-shadow:0 8px 28px rgba(44,29,22,.045) !important;
+  transition:transform .35s ease,box-shadow .35s ease !important;
+}
+.circuit-card:hover,.tour-card:hover,.experience-card:hover {
+  transform:translateY(-5px) !important; box-shadow:0 18px 38px rgba(44,29,22,.11) !important;
+}
+.circuit-card h3,.tour-card h3,.experience-card h3 { font-size:clamp(25px,2.1vw,32px) !important; line-height:1.05 !important; }
+.circuit-card img,.tour-card img,.experience-card img { transition:transform .75s cubic-bezier(.2,.7,.2,1) !important; }
+.circuit-card:hover img,.tour-card:hover img,.experience-card:hover img { transform:scale(1.035); }
+.about-section { background:#FBF8F5 !important; }
+.about-section h2 { font-size:clamp(42px,5vw,68px) !important; line-height:.99 !important; }
+.site-footer { font-family:var(--brand-sans) !important; }
+.site-footer h2,.site-footer h3 { font-family:var(--brand-serif) !important; font-size:clamp(22px,2vw,28px) !important; letter-spacing:-.02em !important; }
+.site-footer a { transition:opacity .2s ease,color .2s ease !important; }
+:focus-visible { outline-color:#922D20 !important; outline-offset:4px; }
+@media(max-width:700px) {
+  .header-inner { min-height:70px; }
+  .hero h1 { font-size:clamp(45px,12vw,70px) !important; }
+  .hero-copy { font-size:14px !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+}
