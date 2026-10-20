@@ -79,3 +79,27 @@
   .mega-menu-quote { min-height:220px; }
 }
 @media(prefers-reduced-motion:reduce) { .nav-dropdown-toggle,.mega-menu,.mega-menu-quote-image { transition:none; } }
+
+
+/* Override legacy navigation/button styles: the circuit chevron must remain bare. */
+.site-header .nav-dropdown .nav-dropdown-topline > .nav-dropdown-toggle,
+.site-header .nav-dropdown .nav-dropdown-topline > .nav-dropdown-toggle:hover,
+.site-header .nav-dropdown .nav-dropdown-topline > .nav-dropdown-toggle:active,
+.site-header .nav-dropdown.is-open .nav-dropdown-topline > .nav-dropdown-toggle {
+  appearance:none !important;
+  -webkit-appearance:none !important;
+  background:transparent !important;
+  background-color:transparent !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  color:#922D20 !important;
+  padding:0 !important;
+}
+.site-header .nav-dropdown .nav-dropdown-topline > .nav-dropdown-toggle:hover {
+  color:#6f2119 !important;
+}
+.site-header .nav-dropdown .nav-dropdown-topline > .nav-dropdown-toggle:focus-visible {
+  outline:2px solid #922D20 !important;
+  outline-offset:2px !important;
+}
