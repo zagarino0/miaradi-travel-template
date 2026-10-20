@@ -1,0 +1,145 @@
+/* MIARADI-TRAVEL — marque et hiérarchie visuelle unifiées.
+   Palette stricte : rouge #922D20, ivoire #FBF8F5, texte neutre uniquement.
+   Chargée en dernier pour neutraliser les anciennes couches de styles. */
+:root {
+  --brand-red: #922D20 !important;
+  --brand-red-dark: #702219 !important;
+  --brand-ivory: #FBF8F5 !important;
+  --brand-paper: #FBF8F5 !important;
+  --paper: #FBF8F5 !important;
+  --paper-deep: #F3EDE8 !important;
+  --white: #FBF8F5 !important;
+  --ink: #2C2926 !important;
+  --muted: #716963 !important;
+  --forest: #922D20 !important;
+  --forest-deep: #702219 !important;
+  --forest-soft: #922D20 !important;
+  --sand: #FBF8F5 !important;
+  --terracotta: #922D20 !important;
+  --line: rgba(44,41,38,.16) !important;
+  --mt-ink: #2C2926 !important;
+  --mt-forest: #922D20 !important;
+  --mt-gold: #FBF8F5 !important;
+  --mt-gold-deep: #922D20 !important;
+  --mt-paper: #FBF8F5 !important;
+  --mt-card: #FBF8F5 !important;
+}
+html, body { background: #FBF8F5 !important; color: #2C2926 !important; }
+body { font-family: "DM Sans", Arial, sans-serif !important; }
+::selection { background: #922D20 !important; color: #FBF8F5 !important; }
+a:hover, .primary-nav > a:not(.nav-cta):hover, .text-link:hover,
+.underlined-link:hover, .circuit-link:hover { color: #922D20 !important; }
+.promo-bar { background: #922D20 !important; color: #FBF8F5 !important; border: 0 !important; border-radius: 0 !important; }
+.promo-bar a, .promo-bar strong, .promo-contact-link { color: #FBF8F5 !important; background: transparent !important; }
+.promo-bar .promo-cta { color: #922D20 !important; background: #FBF8F5 !important; border: 1px solid #FBF8F5 !important; border-radius: 2px !important; }
+.promo-bar .promo-cta:hover { color: #FBF8F5 !important; background: #702219 !important; border-color: #FBF8F5 !important; }
+.site-header { position: sticky !important; top: 0 !important; background: rgba(251,248,245,.97) !important; border-color: rgba(44,41,38,.15) !important; box-shadow: none !important; }
+.primary-nav > a:not(.nav-cta), .language-toggle { color: #2C2926 !important; }
+.primary-nav .language-toggle { border: 1px solid rgba(44,41,38,.22) !important; border-radius: 2px !important; background: #FBF8F5 !important; color: #922D20 !important; }
+.primary-nav .language-toggle:hover, .primary-nav .language-toggle:focus-visible { background: #922D20 !important; border-color: #922D20 !important; color: #FBF8F5 !important; }
+.nav-cta, .button-dark, .button-primary, .form-submit, .trip-finder-submit,
+.about-cta, .planning-copy .button, .contact .button {
+  color: #FBF8F5 !important; background: #922D20 !important; border: 1px solid #922D20 !important;
+  border-radius: 2px !important; box-shadow: none !important;
+}
+.nav-cta:hover, .button-dark:hover, .button-primary:hover, .form-submit:hover,
+.trip-finder-submit:hover, .about-cta:hover, .planning-copy .button:hover, .contact .button:hover {
+  color: #FBF8F5 !important; background: #702219 !important; border-color: #702219 !important;
+}
+.button-light { color: #922D20 !important; background: #FBF8F5 !important; border-color: #FBF8F5 !important; border-radius: 2px !important; }
+.button-light:hover { color: #FBF8F5 !important; background: #922D20 !important; border-color: #922D20 !important; }
+.hero { background: #2C2926 !important; color: #FBF8F5 !important; }
+.hero-shade { background: linear-gradient(90deg,rgba(25,20,18,.76),rgba(25,20,18,.37) 58%,rgba(25,20,18,.08)) !important; }
+.hero-content, .hero h1, .hero-copy, .hero-bottom, .hero-index { color: #FBF8F5 !important; }
+.hero h1 em, h1 em, h2 em, .hero h1 strong { color: #FBF8F5 !important; }
+.hero .eyebrow, .eyebrow, .section-kicker, .trip-finder-kicker { color: #922D20 !important; }
+.hero .eyebrow, .hero .eyebrow span { color: #FBF8F5 !important; }
+.hero .eyebrow-line { background: #FBF8F5 !important; }
+.hero-destination-strip { background: #FBF8F5 !important; color: #2C2926 !important; border: 1px solid rgba(44,41,38,.16) !important; border-radius: 0 !important; }
+.hero-destination small, .hero-destination-prompt > span { color: #716963 !important; }
+.trip-finder { background: #F3EDE8 !important; color: #2C2926 !important; border-radius: 0 !important; border-color: rgba(44,41,38,.16) !important; box-shadow: none !important; }
+.trip-finder-inner { border-color: rgba(44,41,38,.16) !important; }
+.trip-finder h2, .section-heading h2, .intro h2, .contact h2, .about-content h2,
+.included-heading h2, .planning-copy h2 { color: #2C2926 !important; }
+.trip-finder h2 em, .section-heading h2 em, .intro h2 em, .contact h2 em,
+.about-content h2 em, .included-heading h2 em, .planning-copy h2 em { color: #922D20 !important; }
+select, input, textarea, .quote-form input, .quote-form select, .quote-form textarea,
+.trip-finder select, .circuit-filter-select, .filter-select-wrap select {
+  color: #2C2926 !important; background: #FBF8F5 !important; border-color: #D9CEC4 !important; border-radius: 2px !important;
+}
+select:focus, input:focus, textarea:focus, .quote-form input:focus,
+.quote-form select:focus, .quote-form textarea:focus { outline: 2px solid rgba(146,45,32,.25) !important; border-color: #922D20 !important; box-shadow: none !important; }
+.trust-strip, .about-section, .madagascar-discovery, .included, .planning-steps,
+.contact, .inspiration-band, .circuit-photo-gallery { background-color: #FBF8F5 !important; color: #2C2926 !important; }
+.trust-strip article, .included-grid article, .planning-steps-grid article { border-color: rgba(44,41,38,.16) !important; }
+.trust-strip article > span, .included-icon, .planning-icon, .about-principle-number,
+.value-number, .note-icon { color: #922D20 !important; }
+.about-content .eyebrow, .about-content h2 em { color: #922D20 !important; }
+.about-visual { background: #F3EDE8 !important; }
+.about-stamp { background: #922D20 !important; color: #FBF8F5 !important; }
+.about-principles { border-color: rgba(44,41,38,.18) !important; }
+.about-cta { background: #922D20 !important; color: #FBF8F5 !important; }
+.madagascar-discovery { padding-block: clamp(64px,8vw,110px) !important; }
+.collage-center { background: #FBF8F5 !important; color: #2C2926 !important; border: 1px solid rgba(44,41,38,.15) !important; }
+.collage-center h2, .collage-center p, .collage-center a { color: #922D20 !important; }
+.collage-overline, .collage-leaf { color: #922D20 !important; }
+.madagascar-discovery-copy h2, .madagascar-discovery-copy h2 em { color: #922D20 !important; }
+.included-grid article, .planning-steps-grid article { background: transparent !important; box-shadow: none !important; border-radius: 0 !important; }
+.circuits { color: #FBF8F5 !important; background: #922D20 !important; }
+.circuits .eyebrow, .circuits .eyebrow span, .circuits .section-heading h2,
+.circuits .section-heading-copy, .circuits .filter-label, .circuits .filter-theme,
+.circuits .filter-button, .circuits .circuit-meta, .circuits .circuit-card h3,
+.circuits .circuit-card > p, .circuits .circuits-foot p { color: #FBF8F5 !important; }
+.circuits .eyebrow-line { background: #FBF8F5 !important; }
+.circuits .section-heading h2 em { color: #FBF8F5 !important; }
+.circuit-filters, .filter-bar { background: transparent !important; border-color: rgba(251,248,245,.4) !important; }
+.circuit-filter-select, .filter-select-wrap select { background: #FBF8F5 !important; color: #2C2926 !important; }
+.filter-button { border-radius: 2px !important; border-color: rgba(251,248,245,.5) !important; }
+.filter-button:hover, .filter-button.is-active, .filter-button.active, .filter-button[aria-pressed="true"] {
+  color: #922D20 !important; background: #FBF8F5 !important; border-color: #FBF8F5 !important;
+}
+.circuit-grid { grid-template-columns: repeat(3,minmax(0,1fr)) !important; gap: clamp(18px,2.5vw,30px) !important; }
+.circuit-card { color: #2C2926 !important; background: #FBF8F5 !important; border: 1px solid rgba(44,41,38,.13) !important; border-radius: 2px !important; box-shadow: none !important; transform: none; }
+.circuit-card:hover { box-shadow: 0 12px 28px rgba(44,41,38,.12) !important; transform: translateY(-3px); }
+.circuit-card .circuit-meta, .circuit-card .circuit-price { color: #716963 !important; }
+.circuit-card h3, .circuit-card h2, .circuit-card .circuit-link, .circuit-price strong { color: #922D20 !important; }
+.circuit-card .image-index { color: #FBF8F5 !important; background: #922D20 !important; }
+.circuit-card .image-arrow { color: #FBF8F5 !important; background: #922D20 !important; }
+.circuit-card .gallery-trigger, .circuit-card .circuit-link, .circuit-card .circuit-detail-trigger {
+  color: #922D20 !important; border-color: rgba(146,45,32,.35) !important; background: transparent !important;
+}
+.circuit-card .gallery-trigger:hover, .circuit-card .circuit-detail-trigger:hover { color: #FBF8F5 !important; background: #922D20 !important; }
+.quote-band { background: #F3EDE8 !important; color: #2C2926 !important; }
+.quote-band h2, .quote-band p, .quote-band .text-link { color: #2C2926 !important; }
+.quote-band h2 em, .quote-band .eyebrow { color: #922D20 !important; }
+.quote-decoration { color: rgba(146,45,32,.05) !important; }
+.contact-note { border-color: rgba(44,41,38,.16) !important; }
+.form-status { color: #702219 !important; background: #F3EDE8 !important; border-left: 3px solid #922D20 !important; }
+.site-footer { background: #922D20 !important; color: #FBF8F5 !important; }
+.site-footer a, .site-footer p, .footer-bottom { color: #FBF8F5 !important; }
+.site-footer .brand-mark { background: #FBF8F5 !important; color: #922D20 !important; }
+.site-footer .footer-bottom { border-color: rgba(251,248,245,.35) !important; }
+.gallery-dialog, .circuit-detail-dialog { color: #2C2926 !important; background: #FBF8F5 !important; }
+.gallery-dialog::backdrop, .circuit-detail-dialog::backdrop { background: rgba(44,41,38,.82) !important; }
+.gallery-dialog-head h2, .detail-head h2, .detail-section h3, .detail-day h4,
+.detail-facts strong { color: #922D20 !important; }
+.gallery-close, .detail-close { color: #922D20 !important; border-color: rgba(146,45,32,.25) !important; }
+.detail-facts .detail-price, .detail-day-number, .detail-day-location { color: #922D20 !important; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #922D20 !important; outline-offset: 3px !important;
+}
+/* Retirer une seconde mosaïque photo redondante : la section découverte au-dessus suffit. */
+.madagascar-mosaic { display: none !important; }
+@media (max-width: 760px) {
+  .site-header { position: sticky !important; top: 0 !important; }
+  .circuit-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .about-layout { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 560px) {
+  .circuit-grid { grid-template-columns: minmax(0,1fr) !important; }
+  .promo-bar { flex-direction: column !important; gap: 7px !important; }
+  .about-principles { grid-template-columns: 1fr !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
