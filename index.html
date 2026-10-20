@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="miaradi-about.css">
   <link rel="stylesheet" href="miaradi-brand-system.css">
   <link rel="stylesheet" href="miaradi-discovery-cards.css">
+  <link rel="stylesheet" href="miaradi-circuits-menu.css">
 
   <script src="script.js" defer></script>
 </head>
@@ -42,7 +43,37 @@
       </button>
       <nav class="primary-nav" id="primary-nav" aria-label="Navigation principale">
         <a href="#about" data-i18n="navAbout">À propos</a>
-        <a href="#circuits" data-i18n="navCircuits">Circuits</a>
+        <div class="nav-dropdown" id="circuits-dropdown">
+          <div class="nav-dropdown-topline">
+            <a href="#circuits" data-i18n="navCircuits">Circuits</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-label="Ouvrir le sous-menu Circuits" aria-controls="circuits-mega-menu"><span aria-hidden="true">⌄</span></button>
+          </div>
+          <div class="mega-menu" id="circuits-mega-menu">
+            <section class="mega-menu-themes" aria-labelledby="mega-themes-title">
+              <h3 id="mega-themes-title" data-i18n="megaThemes">Les thèmes</h3>
+              <div class="mega-menu-theme-links">
+                <a href="#circuits" data-theme-filter="nature" data-i18n="filterNature">Nature</a>
+                <a href="#circuits" data-theme-filter="coast" data-i18n="filterCoast">Côte & îles</a>
+                <a href="#circuits" data-theme-filter="culture" data-i18n="filterCulture">Culture</a>
+                <a href="#circuits" data-theme-filter="all" data-i18n="megaTailor">Voyage sur mesure</a>
+              </div>
+              <p data-i18n="megaThemesCopy">Choisissez une ambiance et imaginez votre voyage à Madagascar.</p>
+            </section>
+            <section class="mega-menu-featured" aria-labelledby="mega-featured-title">
+              <h3 id="mega-featured-title" data-i18n="megaFeatured">Quelques idées de circuits</h3>
+              <div class="mega-menu-circuit-list">
+                <a href="#circuits" data-circuit="L'Ouest sauvage"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Walking_the_Avenue_of_the_Baobabs.jpg?width=480" alt="" loading="lazy"><span><strong data-i18n="megaWestTitle">L’Ouest sauvage</strong><small data-i18n="megaWestCopy">Baobabs et grands espaces</small></span><span aria-hidden="true">↗</span></a>
+                <a href="#circuits" data-circuit="L'appel du lagon"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Beach_at_Nosy_Be.jpg?width=480" alt="" loading="lazy"><span><strong data-i18n="megaNorthTitle">L’appel du lagon</strong><small data-i18n="megaNorthCopy">Nord, plages et îles</small></span><span aria-hidden="true">↗</span></a>
+                <a href="#circuits" data-circuit="La forêt d'Andasibe"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Indri_Andasibe.JPG?width=480" alt="" loading="lazy"><span><strong data-i18n="megaEastTitle">Au cœur des forêts</strong><small data-i18n="megaEastCopy">Nature et biodiversité</small></span><span aria-hidden="true">↗</span></a>
+              </div>
+              <a class="mega-menu-all" href="#circuits" data-i18n="megaViewAll">Voir tous les circuits ↗</a>
+            </section>
+            <a class="mega-menu-quote" href="#contact">
+              <span class="mega-menu-quote-image" aria-hidden="true"></span>
+              <span class="mega-menu-quote-copy"><small data-i18n="megaQuoteEyebrow">VOTRE PROJET</small><strong data-i18n="megaQuoteTitle">Un voyage qui vous ressemble</strong><span data-i18n="megaQuoteCopy">Créons ensemble votre itinéraire, selon vos envies.</span><b data-i18n="megaQuoteButton">Demander un devis ↗</b></span>
+            </a>
+          </div>
+        </div>
         <a href="#contact" data-i18n="navContact">Contact</a>
         <button class="language-toggle" type="button" aria-label="Switch language">EN</button>
         <a class="nav-cta" href="#contact" data-i18n="navQuote">Demander un devis <span aria-hidden="true">↗</span></a>
