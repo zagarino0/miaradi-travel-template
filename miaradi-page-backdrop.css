@@ -1,0 +1,46 @@
+/* MIARADI-TRAVEL — subtle full-page photographic backdrop */
+:root{
+  --mt-backdrop-red:rgba(146,45,32,.10);
+  --mt-backdrop-ivory:rgba(251,248,245,.86);
+}
+html{background:#FBF8F5}
+body{
+  position:relative;
+  isolation:isolate;
+  background:rgba(251,248,245,.94)!important;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:-18px;
+  z-index:-2;
+  pointer-events:none;
+  background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Walking_the_Avenue_of_the_Baobabs.jpg?width=2000");
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  filter:blur(7px);
+  opacity:.24;
+  transform:scale(1.025);
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    linear-gradient(135deg,rgba(251,248,245,.86),rgba(251,248,245,.94) 45%,rgba(251,248,245,.84)),
+    linear-gradient(0deg,var(--mt-backdrop-red),transparent 65%);
+}
+.site-header,.promo-bar,.site-footer{
+  backdrop-filter:blur(14px);
+}
+@media(max-width:700px){
+  body::before{filter:blur(5px);opacity:.18}
+  body::after{background:rgba(251,248,245,.91)}
+}
+@media(prefers-reduced-transparency:reduce){
+  body::before{opacity:.10;filter:blur(3px)}
+  body::after{background:rgba(251,248,245,.96)}
+}
