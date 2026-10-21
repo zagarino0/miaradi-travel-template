@@ -1,39 +1,46 @@
-/* MIARADI-TRAVEL — shared pill-button system.
-   Apply the supplied rounded red/ivory CTA treatment consistently site-wide. */
-:root{--mt-cta-red:#922D20;--mt-cta-ivory:#FBF8F5}
-:where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,.form-submit,.trip-finder-submit,.footer-contact-cta){
-  box-sizing:border-box;
-  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;
-  min-height:49px!important;padding:0 23px!important;
-  border:1px solid var(--mt-cta-red)!important;border-radius:999px!important;
-  background:var(--mt-cta-red)!important;color:var(--mt-cta-ivory)!important;
-  font-family:"DM Sans",Arial,sans-serif!important;font-size:11px!important;font-weight:700!important;
-  line-height:1.15!important;letter-spacing:.055em!important;text-transform:uppercase!important;text-decoration:none!important;
-  box-shadow:none!important;cursor:pointer;
-  transition:background .22s ease,color .22s ease,border-color .22s ease,transform .22s ease,box-shadow .22s ease!important;
+/* MIARADI-TRAVEL — one consistent visual style for ALL CTA buttons and button-like links */
+:root{--mt-red:#922D20;--mt-ivory:#FBF8F5}
+:where(a,button,input[type="submit"],input[type="button"]){
+  -webkit-tap-highlight-color:transparent;
 }
-:where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,.form-submit,.trip-finder-submit,.footer-contact-cta) span[aria-hidden="true"]{
-  display:inline-block!important;font-size:15px!important;line-height:1!important;transition:transform .22s ease!important
+:where(
+ a.button,button.button,
+ a.nav-cta,a.promo-cta,a.about-cta,a.footer-contact-cta,
+ .form-submit,.trip-finder-submit,
+ .discovery-card-cta,
+ .hero a[href="#circuits"],.planning-copy a[href="#contact"],
+ .circuits-foot a[href="#contact"],
+ .gallery-dialog-foot a[href="#contact"],
+ a[href="#contact"].footer-contact-cta
+){
+ box-sizing:border-box!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;
+ min-height:49px!important;padding:0 23px!important;border:1px solid var(--mt-red)!important;border-radius:999px!important;
+ background:var(--mt-red)!important;color:var(--mt-ivory)!important;
+ font-family:"DM Sans",Arial,sans-serif!important;font-size:11px!important;font-weight:700!important;line-height:1.2!important;
+ letter-spacing:.045em!important;text-transform:uppercase!important;text-decoration:none!important;box-shadow:none!important;cursor:pointer!important;
+ transition:background .22s ease,color .22s ease,transform .22s ease,box-shadow .22s ease!important;
 }
-:where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,.form-submit,.trip-finder-submit,.footer-contact-cta):hover{
-  background:var(--mt-cta-ivory)!important;color:var(--mt-cta-red)!important;border-color:var(--mt-cta-red)!important;
-  transform:translateY(-2px)!important;box-shadow:0 8px 22px rgba(146,45,32,.12)!important
+:where(
+ a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,a.footer-contact-cta,
+ .form-submit,.trip-finder-submit,.discovery-card-cta,
+ .hero a[href="#circuits"],.planning-copy a[href="#contact"],.circuits-foot a[href="#contact"],.gallery-dialog-foot a[href="#contact"]
+):hover{
+ background:var(--mt-ivory)!important;color:var(--mt-red)!important;border-color:var(--mt-red)!important;
+ transform:translateY(-2px)!important;box-shadow:0 8px 22px rgba(146,45,32,.12)!important;
 }
-:where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,.form-submit,.trip-finder-submit,.footer-contact-cta):hover span[aria-hidden="true"]{transform:translate(2px,-2px)}
-:where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,.form-submit,.trip-finder-submit,.footer-contact-cta):focus-visible{outline:2px solid var(--mt-cta-red)!important;outline-offset:4px!important}
-:where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,.form-submit,.trip-finder-submit,.footer-contact-cta):active{transform:translateY(0)!important}
+:where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,a.footer-contact-cta,.form-submit,.trip-finder-submit) span[aria-hidden="true"]{
+ display:inline-block!important;font-size:15px!important;line-height:1!important;transition:transform .22s ease!important
+}
+:where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,a.footer-contact-cta,.form-submit,.trip-finder-submit):hover span[aria-hidden="true"]{transform:translate(2px,-2px)}
+:where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,a.footer-contact-cta,.form-submit,.trip-finder-submit):focus-visible{outline:2px solid var(--mt-red)!important;outline-offset:4px!important}
+:where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,a.footer-contact-cta,.form-submit,.trip-finder-submit):active{transform:translateY(0)!important}
+.promo-cta{min-height:42px!important;padding-inline:20px!important}
 .nav-cta{white-space:nowrap}
-.promo-cta{min-height:38px!important;padding:0 17px!important;font-size:10px!important}
-.hero .button-light{background:var(--mt-cta-red)!important;color:var(--mt-cta-ivory)!important;border-color:var(--mt-cta-red)!important}
-.hero .button-light:hover{background:var(--mt-cta-ivory)!important;color:var(--mt-cta-red)!important}
-.button-outline-light{background:transparent!important;color:var(--mt-cta-ivory)!important;border-color:rgba(251,248,245,.75)!important}
-.button-outline-light:hover{background:var(--mt-cta-ivory)!important;color:var(--mt-cta-red)!important;border-color:var(--mt-cta-ivory)!important}
-.button-dark{background:var(--mt-cta-red)!important;color:var(--mt-cta-ivory)!important}
-.trip-finder-submit{width:100%}
+.discovery-card-cta{min-height:38px!important;padding-inline:17px!important;font-size:10px!important}
+:where(.menu-toggle,.nav-dropdown-toggle,.language-toggle,.gallery-close){border-radius:999px!important}
+.nav-dropdown-toggle{background:transparent!important;box-shadow:none!important}
 @media(max-width:760px){
- :where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,.form-submit,.trip-finder-submit,.footer-contact-cta){min-height:47px!important;padding-inline:19px!important;font-size:10px!important}
+ :where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,a.footer-contact-cta,.form-submit,.trip-finder-submit){min-height:46px!important;padding-inline:19px!important;font-size:10px!important}
  .nav-cta{white-space:normal}
 }
-@media(prefers-reduced-motion:reduce){
- :where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,.form-submit,.trip-finder-submit,.footer-contact-cta){transition:none!important}
-}
+@media(prefers-reduced-motion:reduce){:where(a.button,button.button,a.nav-cta,a.promo-cta,a.about-cta,a.footer-contact-cta,.form-submit,.trip-finder-submit,.discovery-card-cta){transition:none!important}}
