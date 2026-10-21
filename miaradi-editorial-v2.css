@@ -145,3 +145,26 @@ a,button{touch-action:manipulation}
  .trip-finder-form{grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
  .trip-finder-submit{grid-column:auto!important;width:100%!important;justify-self:stretch!important}
 }
+
+
+/* Floating trip finder panel overlapping the hero edge */
+.trip-finder{
+ position:relative!important;
+ z-index:5!important;
+ margin-top:-72px!important;
+ padding:0 0 28px!important;
+ background:transparent!important;
+}
+.trip-finder-inner{
+ position:relative!important;
+ width:min(1680px,calc(100% - 48px))!important;
+ max-width:1680px!important;
+ margin:0 auto!important;
+ border:1px solid rgba(17,17,15,.12)!important;
+ background:var(--miaradi-ivory,#FBF8F5)!important;
+ box-shadow:0 24px 60px rgba(35,25,20,.14)!important;
+}
+@media(max-width:760px){
+ .trip-finder{margin-top:-34px!important;padding-bottom:20px!important}
+ .trip-finder-inner{width:calc(100% - 24px)!important}
+}
