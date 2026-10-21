@@ -605,18 +605,26 @@ document.addEventListener("DOMContentLoaded", () => {
       progress.append(control);
     });
     hero.append(progress);
+    let lastProgressIndex = -1;
     const syncProgress = () => {
       const active = Math.max(0, heroSlides.findIndex((slide) => slide.classList.contains("is-active")));
+      if (active === lastProgressIndex) return;
+      lastProgressIndex = active;
       progress.querySelectorAll("button").forEach((button, index) => {
-        button.removeAttribute("aria-current");
         if (index === active) {
           button.setAttribute("aria-current", "true");
           const fill = button.querySelector(".progress-fill");
           if (fill) { fill.style.animation = "none"; void fill.offsetWidth; fill.style.animation = ""; }
+        } else {
+          button.removeAttribute("aria-current");
         }
       });
     };
-    window.setInterval(syncProgress, 250);
+    progress.querySelectorAll("button").forEach((button, index) => {
+      button.addEventListener("click", () => { lastProgressIndex = -1; syncProgress(); });
+    });
+    syncProgress();
+    window.setInterval(syncProgress, 300);
   }
 
   // Subtle parallax on the hero image, disabled for reduced-motion preferences.
