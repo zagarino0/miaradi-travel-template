@@ -15,7 +15,7 @@ body::before{
   content:"";
   position:fixed;
   inset:0;
-  z-index:0;
+  z-index:-1;
   pointer-events:none;
   background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Walking_the_Avenue_of_the_Baobabs.jpg?width=2000");
   background-position:center 48%;
@@ -23,8 +23,7 @@ body::before{
   background-repeat:no-repeat;
   opacity:1;
 }
-/* Put the real page content above the background layer. */
-body > *{position:relative;z-index:1}
+/* The fixed pseudo-element stays attached to the viewport while every page scrolls. */
 /* Avoid a full-page ivory veil: it was hiding the intended photo effect. */
 body::after{content:none!important}
 /* Sections that should float over the landscape retain a translucent ivory surface. */
