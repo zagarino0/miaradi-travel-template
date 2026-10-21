@@ -4,10 +4,17 @@
   --mt-backdrop-ivory:#FBF8F5;
   --mt-backdrop-red:#922D20;
 }
-html{min-height:100%;background:#d8c9b8}
+html{
+  min-height:100%;
+  background-color:#d8c9b8!important;
+  background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Walking_the_Avenue_of_the_Baobabs.jpg?width=2000")!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  background-repeat:no-repeat!important;
+  background-attachment:fixed!important;
+}
 body{
   position:relative;
-  isolation:isolate;
   background:transparent!important;
 }
 /* Keep the photograph crisp and visible, like the reference video. */
@@ -26,13 +33,8 @@ body::before{
 /* The fixed pseudo-element stays attached to the viewport while every page scrolls. */
 /* Avoid a full-page ivory veil: it was hiding the intended photo effect. */
 body::after{content:none!important}
-/* Sections that should float over the landscape retain a translucent ivory surface. */
-.about-section,
-.discovery-cards,
-.included,
-.planning-steps,
-.contact,
-.quote-band{
+/* Keep the photo visible through page sections while preserving readable ivory panels. */
+main > section:not(.hero){
   background-color:rgba(251,248,245,.88)!important;
   background-image:none!important;
 }
@@ -59,6 +61,7 @@ body::after{content:none!important}
   -webkit-backdrop-filter:blur(14px);
 }
 @media(max-width:760px){
+  html{background-position:58% center!important}
   body::before{background-position:58% center}
   .trip-finder{margin-top:-34px!important;padding-bottom:20px!important}
   .trip-finder-inner{width:calc(100% - 24px)!important}
