@@ -1,40 +1,73 @@
-/* MIARADI-TRAVEL — full-page Madagascar photo, softly blurred */
-:root{--mt-backdrop-red:rgba(146,45,32,.08)}
-html{min-height:100%;background:#FBF8F5}
+/* MIARADI-TRAVEL — photo backdrop with a floating ivory content panel.
+   Inspired by the supplied reference video: the landscape stays visible around
+   the panel; the panel itself remains readable and uses the official palette. */
+:root{
+  --mt-backdrop-ivory:#FBF8F5;
+  --mt-backdrop-red:#922D20;
+}
+html{min-height:100%;background:var(--mt-backdrop-ivory)}
 body{
   position:relative;
   isolation:isolate;
-  background:transparent!important;
+  background:var(--mt-backdrop-ivory)!important;
 }
+/* Soft full-page photographic layer; avoid washing it out with an opaque overlay. */
 body::before{
   content:"";
   position:fixed;
-  inset:-20px;
+  inset:-14px;
   z-index:-2;
   pointer-events:none;
   background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Walking_the_Avenue_of_the_Baobabs.jpg?width=2000");
-  background-position:center;
+  background-position:center 45%;
   background-size:cover;
   background-repeat:no-repeat;
-  filter:blur(8px);
-  opacity:.48;
-  transform:scale(1.03);
+  filter:blur(5px);
+  opacity:.64;
+  transform:scale(1.025);
 }
+/* Light ivory veil keeps the atmosphere warm while preserving the photograph. */
 body::after{
   content:"";
   position:fixed;
   inset:0;
   z-index:-1;
   pointer-events:none;
-  background:linear-gradient(135deg,rgba(251,248,245,.58),rgba(251,248,245,.74) 48%,rgba(251,248,245,.61));
+  background:rgba(251,248,245,.24);
 }
-.site-header,.promo-bar,.site-footer{backdrop-filter:blur(14px)}
-/* Keep explicitly designed hero and card surfaces unchanged. */
+/* The floating search panel is the visual foreground, like the reference video. */
+.trip-finder{
+  position:relative;
+  z-index:2;
+  background:transparent!important;
+  margin-top:clamp(-78px,-5vw,-42px);
+  padding-top:0!important;
+}
+.trip-finder-inner{
+  position:relative;
+  background:var(--mt-backdrop-ivory)!important;
+  border:1px solid rgba(146,45,32,.18);
+  box-shadow:0 22px 60px rgba(42,31,27,.13);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.trip-finder-heading,
+.trip-finder-form{position:relative;z-index:1}
+/* Keep other editorial sections on their intended ivory surfaces. */
+.about-section,.discovery-cards,.included,.planning-steps,.contact,.quote-band{
+  position:relative;
+}
+.site-header,.promo-bar,.site-footer{
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
 @media(max-width:700px){
-  body::before{filter:blur(6px);opacity:.36}
-  body::after{background:rgba(251,248,245,.72)}
+  body::before{filter:blur(4px);opacity:.42}
+  body::after{background:rgba(251,248,245,.38)}
+  .trip-finder{margin-top:-34px}
+  .trip-finder-inner{box-shadow:0 12px 32px rgba(42,31,27,.12)}
 }
 @media(prefers-reduced-transparency:reduce){
-  body::before{opacity:.22;filter:blur(4px)}
-  body::after{background:rgba(251,248,245,.86)}
+  body::before{filter:blur(3px);opacity:.32}
+  body::after{background:rgba(251,248,245,.55)}
 }
