@@ -581,5 +581,177 @@ document.addEventListener("DOMContentLoaded", () => {
     status.hidden = false;
   });
 
+
+  // Hero slide progress indicators, synced with the existing automatic slideshow.
+  const hero = document.querySelector(".hero");
+  const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
+  if (hero && heroSlides.length > 1 && !hero.querySelector(".hero-progress")) {
+    const progress = document.createElement("div");
+    progress.className = "hero-progress";
+    progress.setAttribute("aria-label", currentLanguage === "fr" ? "Choisir une image du diaporama" : "Choose a slideshow image");
+    heroSlides.forEach((slide, index) => {
+      const control = document.createElement("button");
+      control.type = "button";
+      control.setAttribute("aria-label", String(index + 1).padStart(2, "0"));
+      control.innerHTML = String(index + 1).padStart(2, "0") + '<span class="progress-track"><span class="progress-fill"></span></span>';
+      control.addEventListener("click", () => {
+        heroSlides.forEach((item) => item.classList.remove("is-active"));
+        heroSlides[index].classList.add("is-active");
+        progress.querySelectorAll("button").forEach((button, i) => {
+          button.removeAttribute("aria-current");
+          if (i === index) button.setAttribute("aria-current", "true");
+        });
+      });
+      progress.append(control);
+    });
+    hero.append(progress);
+    const syncProgress = () => {
+      const active = Math.max(0, heroSlides.findIndex((slide) => slide.classList.contains("is-active")));
+      progress.querySelectorAll("button").forEach((button, index) => {
+        button.removeAttribute("aria-current");
+        if (index === active) {
+          button.setAttribute("aria-current", "true");
+          const fill = button.querySelector(".progress-fill");
+          if (fill) { fill.style.animation = "none"; void fill.offsetWidth; fill.style.animation = ""; }
+        }
+      });
+    };
+    window.setInterval(syncProgress, 250);
+  }
+
+  // Subtle parallax on the hero image, disabled for reduced-motion preferences.
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const parallaxHero = document.querySelector(".hero");
+    window.addEventListener("scroll", () => {
+      if (!parallaxHero) return;
+      const rect = parallaxHero.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        const offset = Math.max(-24, Math.min(24, (window.innerHeight - rect.top) * .035));
+        parallaxHero.querySelectorAll(".hero-slide").forEach((image) => {
+          image.style.setProperty("--hero-parallax-y", offset + "px");
+          image.style.objectPosition = "center calc(50% + " + offset + "px)";
+        });
+      }
+    }, { passive: true });
+  }
+
+  // Reveal content as it enters the viewport.
+  const revealTargets = document.querySelectorAll(
+    ".section-heading,.about-section,.discovery-card,.planning-copy,.planning-visual,.circuit-gallery-item,.circuit-card,.contact-intro,.quote-form,.values-grid article"
+  );
+  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.setAttribute("data-reveal", "");
+          requestAnimationFrame(() => entry.target.classList.add("is-revealed"));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+    revealTargets.forEach((target, index) => {
+      target.style.transitionDelay = (index % 4) * 70 + "ms";
+      revealObserver.observe(target);
+    });
+  }
+
+  // Turn the existing contact form into a three-step guided quote request.
+  const quoteForm = document.getElementById("quote-form");
+  if (quoteForm && !quoteForm.querySelector(".quote-stepper")) {
+    const field = (name) => quoteForm.querySelector('[name="' + name + '"]')?.closest("label");
+    const groups = [
+      { title: currentLanguage === "fr" ? "01 · Vos envies" : "01 · Your interests", fields: ["circuit", "message"] },
+      { title: currentLanguage === "fr" ? "02 · Votre séjour" : "02 · Your trip", fields: ["date", "people"] },
+      { title: currentLanguage === "fr" ? "03 · Vos coordonnées" : "03 · Your details", fields: ["name", "email"] }
+    ];
+    const stepper = document.createElement("div");
+    stepper.className = "quote-stepper";
+    stepper.setAttribute("aria-label", currentLanguage === "fr" ? "Étapes du formulaire" : "Form steps");
+    const steps = groups.map((group, index) => {
+      const panel = document.createElement("section");
+      panel.className = "quote-step";
+      panel.dataset.step = String(index);
+      const heading = document.createElement("p");
+      heading.className = "eyebrow";
+      heading.textContent = group.title;
+      panel.append(heading);
+      group.fields.forEach((name) => {
+        const label = field(name);
+        if (label) panel.append(label);
+      });
+      const indicator = document.createElement("button");
+      indicator.type = "button";
+      indicator.textContent = group.title;
+      indicator.setAttribute("aria-current", index === 0 ? "step" : "false");
+      indicator.addEventListener("click", () => showStep(index));
+      stepper.append(indicator);
+      quoteForm.insertBefore(panel, quoteForm.querySelector(".form-submit"));
+      return panel;
+    });
+    quoteForm.insertBefore(stepper, steps[0]);
+    const actions = document.createElement("div");
+    actions.className = "quote-step-actions";
+    const back = document.createElement("button");
+    back.type = "button"; back.className = "secondary";
+    back.textContent = currentLanguage === "fr" ? "← Retour" : "← Back";
+    const next = document.createElement("button");
+    next.type = "button";
+    next.textContent = currentLanguage === "fr" ? "Continuer →" : "Continue →";
+    actions.append(back, next);
+    quoteForm.insertBefore(actions, quoteForm.querySelector(".form-submit"));
+    let stepIndex = 0;
+    const showStep = (index) => {
+      stepIndex = Math.max(0, Math.min(steps.length - 1, index));
+      steps.forEach((panel, i) => { panel.hidden = i !== stepIndex; });
+      stepper.querySelectorAll("button").forEach((button, i) => {
+        if (i === stepIndex) button.setAttribute("aria-current", "step");
+        else button.setAttribute("aria-current", "false");
+      });
+      back.hidden = stepIndex === 0;
+      next.hidden = stepIndex === steps.length - 1;
+      quoteForm.querySelector(".form-submit").hidden = stepIndex !== steps.length - 1;
+    };
+    const validateStep = () => {
+      const controls = Array.from(steps[stepIndex].querySelectorAll("input,select,textarea"));
+      for (const control of controls) {
+        if (!control.checkValidity()) { control.reportValidity(); return false; }
+      }
+      return true;
+    };
+    next.addEventListener("click", () => { if (validateStep()) showStep(stepIndex + 1); });
+    back.addEventListener("click", () => showStep(stepIndex - 1));
+    showStep(0);
+  }
+
+  // Open the existing accessible dialog when a destination gallery tile is selected.
+  const photoDialog = document.getElementById("circuit-gallery");
+  document.querySelectorAll(".circuit-gallery-item").forEach((tile) => {
+    tile.addEventListener("click", (event) => {
+      const image = tile.querySelector("img");
+      if (!image || !photoDialog || typeof photoDialog.showModal !== "function") return;
+      event.preventDefault();
+      const title = tile.querySelector(".circuit-gallery-caption strong")?.textContent || image.alt;
+      const titleNode = photoDialog.querySelector("#gallery-title");
+      const descriptionNode = photoDialog.querySelector("#gallery-description");
+      const grid = photoDialog.querySelector("#gallery-grid");
+      if (titleNode) titleNode.textContent = title;
+      if (descriptionNode) descriptionNode.textContent = image.alt || title;
+      if (grid) {
+        grid.replaceChildren();
+        const figure = document.createElement("figure");
+        figure.className = "gallery-lightbox-feature";
+        const large = document.createElement("img");
+        large.src = image.currentSrc || image.src;
+        large.alt = image.alt || title;
+        large.loading = "eager";
+        figure.append(large);
+        grid.append(figure);
+      }
+      const quoteLink = photoDialog.querySelector("#gallery-quote");
+      if (quoteLink) quoteLink.dataset.circuit = tile.dataset.circuit || title;
+      photoDialog.showModal();
+    });
+  });
+
   setLanguage("fr");
 });
